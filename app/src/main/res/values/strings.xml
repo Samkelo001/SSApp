@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">StarSucksApp</string>
+    <string name="welcome" translatable="true">Welcome to StarSucks</string>
+</resources>
