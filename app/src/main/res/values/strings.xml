@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">StarSucksApp</string>
     <string name="welcome" translatable="true">Welcome to StarSucks</string>
+    <string name="navigation_drawer_open" translatable="false">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close" translatable="false">close Navigation Drawer</string>
+
 </resources>
