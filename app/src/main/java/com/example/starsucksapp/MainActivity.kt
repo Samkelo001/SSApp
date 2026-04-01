@@ -1,5 +1,6 @@
 package com.example.starsucksapp
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.starsucksapp.databinding.ActivityMainBinding
@@ -20,7 +22,8 @@ import com.example.starsucksapp.databinding.ActivityMainWithNavDrawerBinding
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
-    var order = order()
+    var order = Order()
+    private lateinit var binding: ActivityMainWithNavBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -70,17 +73,28 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, NavigationView.O
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.nav_main -> {
-                Toast.makeText(this, "Menu is clicked", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "Menu is clicked", Toast.LENGTH_SHORT).show()
             }
 
             R.id.take_photo -> {
+                openIntent(applicationContext,"",CoffeeSnapActivity::class.java)
                 Toast.makeText(this, "Take photo is clicked", Toast.LENGTH_SHORT).show()
             }
         }
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
+
+    /*@SuppressLint("GestureBackNavigation")
+    override fun onBackPressed() {
+        if(binding.drawerLayout.isDrawerOpen(GravityCompat.START)){
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }*/
 }
-class order(){
+class Order(){
     lateinit var productName: String
     lateinit var customerName: String
     lateinit var customerCell: String
@@ -129,7 +143,7 @@ fun shareIntent(context: Context, order: String){
 }
 
 
-fun shareIntent(context: Context, order: order){
+fun shareIntent(context: Context, order: Order){
     val sendIntent = Intent()
 
     val shareOrderDetails = Bundle()

@@ -9,7 +9,7 @@ import com.example.starsucksapp.databinding.ActivityOrderDetailsBinding
 
 class OrderDetailsActivity : AppCompatActivity() {
 
-    var order = order()
+    var order = Order()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

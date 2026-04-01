@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StarSucksApp">
         <activity
+            android:name=".CoffeeSnapActivity"
+            android:exported="false" />
+        <activity
             android:name=".OrderDetails_2"
             android:exported="false" />
         <activity
